@@ -1,0 +1,26 @@
+Today's Agenda:
+  
+     2:30 to 3:30 - Core Java Introduction
+     3:30 to 3:45 - Breakout
+     3:45 to 4:00 - break
+     4:00 to 4:45 - Datatypes and Variables
+     4:45 to 5:00 - Breakout
+     5:00 to 6:00 - Control Statements
+     6:00 to 6:15 - Breakout
+     6:15 to 6:30 - Recap
+
+
+  Difference between Maven Project and Java Project will be covered next week?
+
+  Package:
+    - Right click -> src/main/java -> New -> Package
+    - It is a folder to keep codes organized
+    - The naming convention for the package should start with lowercase
+
+  Class:
+    - Right click on the package name and create -> New -> Class
+    - The naming convention to create a classname is 
+        - Start with UpperCase
+        - Spaces are not allowed inbetween each words
+        - Special characters are allowed in the middle   
+         
