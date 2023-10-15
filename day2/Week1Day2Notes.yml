@@ -1,0 +1,69 @@
+Today's Agenda:
+  
+     2:15 to 2:30 - Recap
+     2:30 to 3:15 - Control statements
+     3:15 to 3:30 - Jump Statements
+     3:30 to 3:45 - Breakout
+     3:45 to 4:00 - Break
+     4:00 to 5:00 - Methods and Object
+     5:00 to 5:15 - Breakout
+     5:15 to 6:15 - Arrays
+     6:15 to 6:30 - Breakout
+
+  Steps to Force Update:
+     Right click on the Project -> Click Maven -> Click Update Project -> Click ForceUpdate checkbox
+     -> Click Finish
+  Steps to change JRE Version:
+     Right click on JRE system Library -> Click Build path -> CLick Configure build path ->
+     Click Edit -> Click JRE environment dropdown -> Click the requited version -> 
+     Click Finish -> Click Apply and close.  
+
+  Control statements:
+  ===================
+     1. Selection
+         - if (report pass/ fail)
+         - switch (many conditions / launching multiple browsers)
+     2.  Iteration
+          - for loop 
+          - for each (String /list)
+          - while
+          - do while
+for loop:
+========
+    
+Jumpstatements:
+===============
+   break:
+     - It will stop the iteration
+     - It will come out of the loop
+   continue:
+      - will skip the current iteration       
+
+Project
+  -package1
+     - class1
+         - variables,methods,objects(members)
+     - class2
+  -package2
+     -class1
+     -class2
+     -class3
+  -package3
+     -class1
+     -class2
+     -class3
+
+
+Method syntax:
+  public void addTwoNumbers(){
+    //write logic
+  }
+   
+   1. Access modifier
+       public    - 
+       private
+       protected - will be covered 3rd week
+       default
+   2. return type
+   3. methodName
+   4. input arguments()
