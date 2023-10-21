@@ -1,0 +1,104 @@
+Today's Agenda:
+  
+    2:30 to 3:30 -> Selenium Introduction
+    3:30 to 3:45 -> Breakout
+    3:45 to 4:00 -> Break
+    4:00 to 5:00 -> Basic locators
+    5:00 to 5:15 -> Breakout
+    5:15 to 6:15 -> Dropdown
+    6:15 to 6:30 -> Breakout
+
+
+    Internal Architecture:
+
+    Chromedriver----> ChromeBrowser
+    EdgeDriver----> EdgeBrowser
+
+    pom.xml
+    --> project object model
+    --> It is a place to maintain all the softwares/libraries required for the project
+
+    Steps:
+    ======
+    1. Launch the browser
+         Launch Chrome browser(ChromeDriver)
+         Create an object for ChromeDriver class
+         ex: ChromeDriver driver = new ChromeDriver();
+    2. Load the url
+         Use get method to load the url
+         ex: driver.get("http://leaftaps.com/opentaps/control/main");
+    3. Maximize the window
+         Call manage() and then call window() and then call maximize()
+         ex:  driver.manage().window().maximize();
+    4. Get the title of the windwo
+          Call getTitle()
+          ex: driver.getTitle();
+    5. Close the browser
+          Call close ()
+          ex: driver.close();           
+    3. Enter the username
+    4. Enter the password
+    5. Click the login button
+    6. Verify 
+
+
+    Version:
+
+    From 4.6.0 
+      -> Selenium manager
+          -> It will check the current Chrome version of your system
+          -> It will download the corresponding browser driver and place it in your local system
+
+      4.13.0
+
+How Selenium communicates:
+========================
+ 1. Identify the information of the WebElement on the WebPaga
+ 2. The informations will be available in the DOM(Document Object Model)
+ 3. 3 ways to open DOM
+     - Right click on the webPage and click Inspect option
+     - Press F12 on the keyboard 
+     - ctrl+shift+i
+  4. Tagname
+      <input> , <h2> , <div> , <span>, <form>, <button>
+    attributes
+      class,id,name, type, placeholder,aria-label
+    attribute value  
+       class="decorativeSubmit"
+  5. To locate an element in the WebPage 
+       - Use findElement()
+  6. To type in a text field use sendKeys()
+  7. To click on a WebElement use click()           
+
+  Basic Locators:
+    1. id
+        
+    2. name
+    3. classname
+    4. linktext
+    5. tagname
+
+
+1. Leads Module:
+   Create Lead
+     - Login
+     - click crmsfa
+     - click Leads
+     - click CreateLead
+     - enter companyname,firstname,lastname
+     - Click Submit
+
+Handling dropdown:
+  1. Find the dropdown element
+  
+  2. Check whether the dropdown WebElement is in Select tag     
+
+  3. Locate the dropdown WebElement and assign it to a variable
+
+  4. Create an object for the Select class
+
+  5. using Select class object call the methods required
+
+          - selectByIndex()
+          - selectByVisibleText()
+          - selectByValue()
