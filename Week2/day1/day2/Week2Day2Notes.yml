@@ -1,0 +1,133 @@
+Today's Agenda:
+
+        2:15 to 2:30 - Recap
+        2:30 to 3:00 - Absolute Xpath
+        3:00 to 4:00 - Relative Xpath(Basic)
+        4:00 to 4:30 - Breakout
+        4:30 to 5:30 - Advanced Xpath
+        5:30 to 5:45 - Breakout
+        5:45 to 6:15 - Advanced Xpath
+        6:15 to 6:30 - Implicitly wait
+
+Xpath:
+  - Absolute Xpath
+      - starts with '/'
+      - starts from the root tag
+      - It is not much used
+      Ex: /html/body/div[2]/div[2]/div/form/p[1]/input
+    
+
+  - Relative Xpath
+      - starts with '//'
+
+   1) Basic Xpath:
+      a) Attribute based xpath:
+         Syntax:
+         //tagname[@attributeName='attributeValue']
+         Example:
+         //input[@id='password']
+         //input[@id='twotabsearchtextbox']
+
+      b) Text based Xpath:
+         Syntax:
+           //tagname[text()='textValue']
+         Example:
+             //a[text()='Leads']
+             //span[text()='Hello, sign in']
+
+       c) Partial Attribute based Xpath:
+          Syntax:
+            //tagname[contains(@attributename,'attributevalue')]
+          Example:
+            //input[contains(@class,'Submit')]
+            //input[contains(@id,'searchtextbox')]  
+
+       d) Partial Text based Xpath:
+          Syntax:
+            //tagname[contains(text(),'textvalue')]      
+          Example:
+             //a[contains(text(),'Create')]
+             //a[contains(text(),'Deals')]
+             //select[contains(@id,'dataSource')]
+
+       e) Index based Xpath:
+          Syntax:
+              (//tagname[text()='textValue'])[index]
+          Example:
+               (//a[contains(text(),'Lead')])[3]
+
+
+
+   
+   2) Advanced Xpath(Axes based Xpath): 
+      1)  Parent to Child:
+          Syntax:
+            BasicRelativeXpathforParent/childTagname
+          Example:
+            (//form[@id='login']/p)[2]
+
+       2) Child to Parent:
+          Syntax:
+            BasicRelativexpathforChild/parent::parenttagname  
+          Example:
+            //p[@class='top']/parent::form
+
+       3) GrandParent to GrandChild:
+          Syntax:
+             BasicRelativeXpathforGrandParent//grandChildTagname
+          Example:
+             (//form[@id='login']//input)[3]
+
+       4) GrandChild to GrandParent:
+          Syntax:
+             BasicRelativeXpathforGrandChild/ancestor::GrandparentTagname
+          Example:
+             //input[@class='decorativeSubmit']/ancestor::form
+
+       5) ElderCousin to YoungerCousin:
+          Syntax:
+             BasicRelativeXpathforElderCousin/following::YoungerCousinTagname
+          Example:
+            //span[text()='Company Name']/following::input
+
+       6) YoungerCousin to ElderCousin:
+          Syntax:
+            BasicRelativeXpathforYoungerCousin/preceding::ElderCousinTagname 
+          Example:
+            //input[@id='createLeadForm_personalTitle']/preceding::input[@id='createLeadForm_firstName']
+
+       7) ElderSibling to YongerSibling:
+          Syntax:
+            BasicRelativeXpathforElderSibling/following-sibling::YoungerSiblingTagname
+          Example:
+           //label[text()='Username']/following-sibling::input
+
+       8) YoungerSibling to ElderSibling:
+          Syntax:
+            BasicRelativexpathforYoungerSibling/preceding-sibling::ElderSiblingtaganane
+          Example:
+            //input[@id='username']/preceding-sibling::label       
+
+     Implicitly Wait:
+       - It is a global wait
+       - All the findElement() and findElements() in a class are affected by ImplicitlyWait
+
+         - NoSuchElementException
+           Ways:
+             - Check whether you have located the element properly
+             - Check whether you have applied ImplicitlyWait                                                 
+      
+      Standard time is 30
+         30 s
+         1. try to locate the element in the dom
+             //username is available in the DOM within 5s -> It will not wait for another 25 s
+             -Instead it will move on to locate the rest of the element
+
+            After the maximum duration of time -> if it could not find the element in the Dom 
+            -> It will throw -> NoSuchElementException 
+
+     Thread.sleep():
+        - This is applicable only for that particular line of code       
+
+
+           
