@@ -1,0 +1,23 @@
+Today's Agenda:
+     2:15 to 2:30 - Live Quiz
+     2:30 to 3:30 - Arrays
+     3:30 to 3:45 - Breakout
+     3:45 to 4:00 - Break
+     4:00 to 4:45 - String
+     4:45 to 5:00 - Breakout
+     5:00 to 6:00 - List, findElements
+     6:00 to 6:20 - Break
+     6:20 to 6:30 - Recap
+
+  int a=12;
+  int b = 13;
+   
+
+
+Load amazon.in
+Search for Oneplus in the search box
+  driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Oneplus",keys.Enter);
+Print all the mobile prices
+   driver.findElements(By.className("a-price-whole"));
+
+  
