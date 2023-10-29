@@ -1,0 +1,150 @@
+Today's Agenda:
+    2:30 to 4:00 - OOPs - Inheritance
+    4:00 to 4:20 - Breakout
+    4:20 to 4:30 - Break
+    4:30 to 5:15 - Polymorphism
+    5:15 to 5:30 - Breakout
+    5:30 to 6:30 - Abstraction
+    6:30 to 6:45 - Breakout
+
+OOPs:
+ - Object Oriented Programming structure
+
+ - Abstraction
+ - Inheritance
+ - Polymorphism
+ - Encapsulation
+
+
+ Inheritance:
+ Definition:
+    Child acquiring the properties of the Parent Class
+  -  4 types of Inheritance
+      a.Single level
+         - A Child class can be called as Derived class / subClass
+         - A Parent class can be called as Super Class/ BaseClass
+      Ex:
+         -Car extends Vehicle
+ 
+    b. Mutilevel
+         - Car extends Vehicle
+         - Audi extends Car
+     c. Hierarchial
+            Vehicle
+        Car Auto Bike
+
+     d. Hybrid
+          Vehicle
+        Car  Auto Bike
+        Audi
+
+      Mutiple Inheritance:
+        It is not supported by Java between Classes
+        It can be achieved between Interfaces
+
+Interview Question:
+  1. Explain about Inheritance concept in Java. Give example of Inheritance in Java , Selenium, Framework?
+     Answer:
+       Definition:
+         Child acquiring the properties of the Parent Class
+       Advantages:
+         Reusablity
+         Avoid Duplicate Implementations
+         REduce code
+       Types:
+         Single,multilevel,hierarchial,hybrid
+       Examples:
+          Java ex:
+            Integer extends Number (Class to class)
+            List extends Collection (Interface to Interface)
+          Selenium ex:
+            ChromeDRiver extends ChromiumDriver
+            ChromiumDriver extends RemoteWebDriver  
+
+  2. Explain Inheritance and explain where you have applied this in your FrameWork and How?
+
+
+Polymorphism:
+    Poly - many 
+    Taking many forms
+    It refers to the ability of an object to take on many forms
+Advantages:
+     - Code Reusability
+     - Readablity
+     - Flexibility
+     - Simplicity   
+Types:
+    Overloading in Java is a mechanism where multiple methods can have the same name but different parameters, 
+    allowing for code reuse and flexibility.
+    Overloading(Compile Time Polymorphism)
+    
+      1. method name should be same
+      2. The number of arguments can differ
+      3. The datatype of arguments can differ
+      ex: println()
+
+    Overriding:
+      Overriding in Java is a mechanism where a subclass provides a specific implementation of a method 
+      that is already defined in its superclass.
+
+ Abstraction:
+   Abstraction in Java is the process of hiding implementation details and providing a simplified view of objects.
+
+    
+Difference between Interface Vs Abstract class Vs Concrete Class:
+Interface:
+  - Used to define contracts for classes to implement
+  - Only method signatures, no implementation
+  - Supports multiple inheritance  
+  - Cannot have constructors
+  - Methods are implicitly public
+  - Can only have constant variables (static final)
+  - Cannot Create object for Interface
+
+Abstract Class:
+  - Can have both method declarations and implemented methods 
+  - Can have constructors      
+  - Used to provide a common base for related classes
+  - Cannot Create object for Abstract Class
+
+Concrete class:
+  - Can have both method declarations and implemented methods
+  - Used to create objects and provide specific implementations
+
+
+Takeaways:
+==========
+
+Inheritance:
+===========
+Inheritance is when a child class inherits properties from a parent class.
+There are four types: Single, Multilevel, Hierarchical, and Hybrid.
+Multiple inheritance is not supported in Java between classes, but it can be achieved using interfaces.
+
+Polymorphism:
+============
+Polymorphism means "taking many forms" and allows objects to have multiple behaviors.
+Types include method overloading and method overriding for flexibility and code reusability.
+
+Abstraction:
+===========
+Abstraction hides complex implementation details, providing a simplified view of objects.
+It helps in building more manageable and readable code.
+
+Difference Between Interface, Abstract Class, and Concrete Class:
+=================================================================
+Interface: Defines contracts, has method signatures only, supports multiple inheritance, and cannot be 
+instantiated.
+Abstract Class: Can have both declarations and implementations, can have constructors, serves as a base for 
+related classes, and cannot be instantiated.
+Concrete Class: Has method declarations and implementations, used to create objects with specific 
+implementations.
+
+
+
+
+  
+
+
+
+
