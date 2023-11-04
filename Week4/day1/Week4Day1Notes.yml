@@ -1,0 +1,90 @@
+Today's Agenda:
+   2:30 to 3:30 -> Target Locators - Alert
+   3:30 to 3:45 -> Breakout
+   3:45 to 4:00 -> Break
+   4:00 to 4:45 -> Frames
+   4:45 to 5:00 -> Breakout
+   5:00 to 6:00 -> Window Handling
+   6:00 to 6:15 -> Breakout
+   6:15 to 6:30 -> Recap
+   6:30 to 7:00 -> String
+
+
+   TargetLocators:
+   ==============
+     Target Locator is an Interface which contains,
+        frame
+        window
+        alert
+     The implementation class of TargetLocator is RemoteTargetLocator
+           RemoteTargetLocator implements TargetLocator
+   Alert:
+   =====
+  
+     1. Alert is a message / pop up thrown by the application
+     2. Alerts are JavaScript function
+
+     3 Steps to do When you find an Alert:
+       1. Try to right click on the alert(inspect)
+       2. If it is not inspectable then you call it as a modal dialog box
+       3. Switch the driver focus to the alert and handle it
+
+    Types of Alert:
+        Alert is an Interface
+           - dismiss()
+           - accept()
+           - getText()
+           - sendKeys()
+        The implementation class of Alert Interface is RemoteAlert
+            RemoteAlert implements Alert
+        a)Modal Alert:
+          1)Simple Alert
+             - Only one option -> accept
+            
+          2)Confirmation Alert  
+             - Two options -> accept/dismiss
+          3)Prompt Alert
+             - to type in the alert box -> sendKeys()
+
+        b)Non-Modal Alert:
+            Sweet Alert:
+              - Handle it as a normal WebElement
+     Exceptions:
+       - NoAlertPresentException
+       - UnhandledAlertException
+   Frame:
+   =====
+     -> Dom inside another Dom
+   Ways to identify Frame:
+     1. Find options like Reload Frame, ViewFrameSource when you inspect 
+     2. NoSuchElementException
+          - Check whether you have located the element properly
+          - Check whether you have applied ImplicitlyWait
+          - Check whether the WebElement is inside Frame
+     3. Check for iframe tag in the DOM
+
+     Once the frame is identified:
+       - switch the driver focus to the frame
+       - frame(int index)
+       - frame(String name/id)
+       - frame(Weblement ele)
+       Overloading example
+
+       -defaultContent()
+         switch the focus back to the main WebPage
+
+        Frame1
+          Click
+         Frame2
+           Click
+          Frame3
+            Click
+           Frame4
+            Click 
+            driver
+
+       driver.switchTo().parentFrame();
+    Exception:
+      - NoSuchFrameException     
+
+NoSuchWindowException
