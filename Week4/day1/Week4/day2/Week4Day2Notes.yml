@@ -1,0 +1,46 @@
+Today's Agenda:
+   2:00 to 2:30 -> String
+   2:30 to 2:45 -> Breakout
+   2:45 to 3:00 -> Live Quiz
+   3:00 to 4:00 -> Advanced User Interactions
+   4:00 to 4:15 -> Breakout
+   4:15 to 4:30 -> Break
+   4:30 to 5:30 -> WebTable
+   5:30 to 5:50 -> Breakout
+   5:50 to 6:15 -> WebTable
+   6:15 to 6:30 -> Recap
+
+Advanced User Interactions:
+1. Actions -> Class
+2. Instantiate Actions class
+    Actions builder = new Actions(driver);
+   
+  movetoElement(ele) -> mousehover
+  dragandDrop(source,target) -> drag and drop
+  dragandDropBy(int x,int y, ele) -> drag and drop by position
+  clickandHold(ele) -> Click and Hold
+  doubleClick(ele) -> Double click
+  contextClick(ele) -> RightClick
+  scrollToElement(ele) -> Scroll Down
+  
+
+WebTable:
+=========
+  <table>   ---------------> table
+    <thead> ---------------> table header
+    </thead>
+    <tbody> ----------------> table body
+      <tr>  ----------------> table row
+       <td></td> -----------> table data
+       <td></td> -----------> table data
+       <td></td> -----------> table data
+       <td></td> -----------> table data
+      </tr>
+      <tr>
+       <td></td>
+       </tr>
+        <tr></tr>
+         <tr></tr> 
+    </tbody>
+  </table>  
+
