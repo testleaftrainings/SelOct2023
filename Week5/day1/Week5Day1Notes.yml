@@ -1,0 +1,98 @@
+Todays Agenda:
+   2:30 - 3:00 -> TestNG Introduction
+   3:00 - 4:00 -> Sequential Execution
+   4:00 - 4:30 -> Breakout
+   4:30 - 5:15 -> Parallel Execution
+   5:15 - 5:30 -> Breakout
+   5:30 - 6:30 -> Annotations
+
+Limitation:
+1. Running the multiple testcases individually
+Expectation:
+ Execute multiple testcases in a single click either sequentially / parallel-> Saves time
+
+2. Passing multiple data
+Expectation:
+  I could pass mutiple data to a testcase using TestNG
+
+3. Basic REport:
+    pass, fail. skip
+
+testng.xml structure:
+=====================
+<suite>
+ <test>
+  <classes>
+    <class name=""/>
+  </classes>
+ </test>
+</suite>    
+
+Steps to do Sequential Execution:
+==================================
+1. Select the required testcases to be executed
+2. Right Click -> Click TestNG at the bottom -> Click Convert to TestNG
+3. A testng.xml wizard will appear
+4. Check whether the selected testcases appear in the preview
+5. Click Finish-> A testng.xml file will appear inside your project
+6. Double click on the testng.xml file to open
+Note: Click Source tab at the bottom to view the testng.xml file structure
+7. To get the failure logs in the console add verbose attribute and specify the range
+8. After execution, to get the report
+    - Refresh your project
+    - test-output folder will appear inside the project
+    - Inside test-ouput folder-> right click-> index.html -> Show In -> System Editor to view the report
+    - To view the emailable report double click -> emailable-report.html
+
+Steps to do Parallel Execution:
+==================================
+1. Select the required testcases to be executed
+2. Right Click -> Click TestNG at the bottom -> Click Convert to TestNG
+3. A testng.xml wizard will appear
+4. Select the parallel mode and mention the thread-count to control the number of instances
+4. Check whether the selected testcases appear in the preview
+5. Click Finish-> A testng.xml file will appear inside your project
+6. Double click on the testng.xml file to open
+Note: Click Source tab at the bottom to view the testng.xml file structure
+7. To get the failure logs in the console add verbose attribute and specify the range
+8. After execution, to get the report
+    - Refresh your project
+    - test-output folder will appear inside the project
+    - Inside test-ouput folder-> right click-> index.html -> Show In -> System Editor to view the report
+    - To view the emailable report double click -> emailable-report.html
+
+Annotation Hierarchy:
+======================
+
+    @BeforeSuite          -> executes once before any test methods in the Suite
+       
+       @BeforeTest        -> executes once before any test methods in the test tag
+      
+         @BeforeClass     -> executes once before any test methods in the class
+
+           @BeforeMethod  -> executes before each test method
+
+             @Test        -> test method
+
+           @AfterMethod   -> executes after each test method
+
+         @AfterClass      -> executes once after any test methods in the class
+
+      @AfterTest          -> executes once after any test methods in the test tag
+    
+   @AfterSuite            -> executes once after any test methods in the Suite
+
+BEfore Suite
+BEfore Test
+Before Class
+    Before Method
+      Testcase 1 
+    After Method
+ Before Method
+   Testcase 2
+ After Method
+After Class
+After Test     
+
+
+   
