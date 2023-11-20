@@ -1,0 +1,137 @@
+Today's Agenda:
+==============
+    2:30 to 3:30  - Attributes
+    3:30 to 3:45  - Breakout
+    3:45 to 4:00  - Live Quiz
+    4:00 to 4:45  - Static Parameterization
+    4:45 to 5:00  - Breakout
+    5:00 to 5:45  - Dynamic Parameterization
+    5:45 to 6:00  - Breakout
+    6:00 to 6:30  - static keyword
+
+Attributes:
+===========
+ 1. priority
+     - Lower priorities will be scheduled first
+     - default value for priority is 0
+     Syntax:
+      @Test(priority = 1)
+      public void duplicateLead() {
+	    System.out.println("Duplicate Lead is Created");//3
+     }
+
+ 2. invocationCount
+      - The number of times this method should be invoked.
+      - default value is 1
+      Syntax:
+       @Test(invocationCount = 10)
+	   public void createLeadTestcase() {
+
+      }
+
+ 3. threadpoolSize
+     The method will be invoked from multiple threads as specified by invocationCount. 
+     Note: this attribute is ignored if invocationCount is not specified
+     Syntax:
+     @Test(invocationCount = 10, threadPoolSize = 5)
+	   public void createLeadTestcase() {
+
+      }
+ 4. invocationTimeout
+     The maximum number of milliseconds that the total number of invocations on this test method
+   should take. This annotation will be ignored if the attribute invocationCount is not specified
+   on this method. If it hasn't returned after this time, it will be marked as a FAIL.
+   Syntax:
+   @Test(invocationCount = 2,invocationTimeOut = 40000)
+	public void createLeadTestcase() {
+    }
+
+ 5. timeOut
+     The maximum number of milliseconds this test should take. If it hasn't returned after this
+     time, it will be marked as a FAIL.
+
+ 6. enabled
+     - To ignore a particular test method from execution ,then set enabled=false
+     Syntax:
+        @Test(enabled = false)
+      public void editLead() {
+	     System.out.println("Lead is Editted");//2
+      }
+ 7. There are two kinds of dependencies:
+   Hard dependencies: All the methods you depend on must have run and succeeded for you to run. 
+                      If at least one failure occurred in your dependencies, you will not be invoked and 
+                      marked as a SKIP in the report.
+  Soft dependencies:  You will always be run after the methods you depend on, even if some of them have failed. 
+                      This is useful when you just want to make sure that your test methods are run in a certain order but their 
+                      success doesn't really depend on the success of others. A soft dependency is obtained by adding "alwaysRun=true" in your @Test annotation.     
+
+ 8. dependsOnMethods:
+     Syntax:
+      @Test(dependsOnMethods = {"week5.day2.testcase.attributes.CreateLead.createLeadTestcase"},alwaysRun = true)
+	public void editLeadTestcase()  {
+    }
+
+9. groups:
+
+    The list of groups this class/method belongs to.
+
+    xml:
+       <suite name="Leaftaps">
+	<groups>
+		<run>
+			<exclude name="functional"></exclude>
+		</run>
+	</groups>
+	<test name="Leaftaps Leads Module" verbose="5">
+		<classes>
+			<class name="week5.day2.testcase.attributes.CreateLead" />
+			<class name="week5.day2.testcase.attributes.EditLead" />
+			<class name="week5.day2.testcase.attributes.DeleteLead" />
+			<class name="week5.day2.testcase.attributes.MergeLead" />
+		</classes>
+	</test> <!-- Leaftaps Leads Module -->
+</suite> <!-- Leaftaps -->
+
+Parameterization:
+==================
+  - No hardcoding of datas inside the class
+  - Preferred to automate them by passing from external source( excel,xml,etc)
+
+2 Types:
+  -Static: (Parameter)
+    If the data common is across multiple testcases, then you store the data -> testng.xml file
+   Examples:
+    url,username,password
+
+  -Dynamic:  (DataProvider)
+    It is specific to the testcase . Store those datas in an excel
+    Example:
+      companyName, firstName, lastName, phoneNumber -> CreateLead 
+     
+Steps to implement Parameter:
+
+1. Identify the data that are need to be static in the xml(url,username,password)
+2. Add parameter tag for each data in the xml file
+   ex: <parameter name="url" value="http://leaftaps.com/opentaps/control/main"></parameter>
+3. Map the parameters in the Class using @Parameters 
+   Note: The name should exactly match the names in the xml file
+    ex: @Parameters({"url","username","password"})
+4. Use that parameters inside the method as arguments
+   Note: Sequence matters but the name of the argumensts doesnot matter
+   ex:public void preCondition(String url,String uName, String pWord)
+5. Finally, replace all the hardcoded data with the arguments
+   Note: Once the parameterization is done in the xml file. make sure 
+      to execute your testcases from the xml file not from the individual testcase
+
+Steps to implement DataProvider:
+
+1. Identify the datas that are specific to the testcase
+     companyName, firstName, lastName, phoneNumber -> CreateLead 
+     phoneNumber, companyName -> EditLead
+2. Create a method to pass data with @DataProvider
+3. Create Input array with number of columns and number of rows
+4. Return data back to the calling method
+5. Receive this data in the testcase
+   - use dataProvider attribute
+   - Pass input arguments to the test method
+6. Finally,replace all the hardcoded data with the input arguments        
