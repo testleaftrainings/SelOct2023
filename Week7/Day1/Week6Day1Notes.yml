@@ -1,0 +1,115 @@
+Todays Agenda:
+
+         2:30 to 3:15 : ReadExcel data
+         3:15 to 3:30 : Classroom
+         3:30 to 4:15 : Excel data Integration
+         4:15 to 4:30 : Classroom
+         4:30 to 5:00 : static keyword
+         5:00 to 5:30 : Constructors
+         5:30 to 5:45 : Break
+         5:45 to 6:30 : Explicit wait
+
+Steps to create excel sheet:
+ 1. Create a data folder inside the project
+ 2. Right click on the data filder-> Click Show In-> System Explorer-> get inside data folder
+    -> Right click -> Create new Microsoft exel sheet-> Enter the details inside the excel sheet->
+    save and close the workbook-> In eclipse-> refresh the data folder-> CreateLead.xlsx will appear
+
+How to read data from excel:
+ - Microsoft Excel
+ - Apache POI (access MS office software) using Java
+ - Focus: Read data from Excel
+ - Excel Extension: .xlsx
+
+
+ Workbook (FileName with .xlsx)
+   - Worksheet(Sheet1, Sheet2)
+    - Rows
+     - Columns (cell)
+
+
+ XSSFWorkBook(only for .xlsx)
+   XSSFWorkSheet
+     XSSFRow
+      XSSFC
+     1 [1,0]    2[1,1]    3[1,2]   4[1,3]
+ 0 Companyname firstname lastname phno ----------> header
+ 1  TestLeaf   Subraja    S       91   ----------> 1st set of data
+ 2  Qeagle     Vidhya     R       99   ----------> 2nd set of data 
+     [2,0]      [2,1]     [2,2]   [2,3]  --------> index
+
+
+Integratig ApachePOI with TestNG:
+  1. Create a 2-dimensional array inside the readexcel mentioning the rowCount and columnCount
+  2. Push all datas from the excel sheet to the array
+  3. Finally return the data to the calling class
+  4. Convert main method to a normal method by removing the arguments and keep the method as a static method  
+
+  "+filename+"
+
+Steps:
+1. Create a method sendData in the Baseclass and annotate with @DataProvider
+   @DataProvider(name="fetchData",indices=1)
+	public String[][] sendData() throws IOException {
+       return ReadExcel.readExcelData(excelFileName);
+
+	}
+	
+2. Within sendData() call ReadExcel.readExcelData()
+
+3. To pass the excelfilename declare a global variable in the BaseClass and  pass as an argument to the method
+     public String excelFileName;
+4. To mention the excelfileName create setValues() inside each testclass and annotate with @BeforeTest
+   @BeforeTest
+	public void setValues() {
+		excelFileName="CreateLead";
+
+	}
+static keyword:
+    variables
+     - It is associated with the class rather than each objects of the class
+     - There will be only one copy of the static variable
+
+    methods:
+      - It can be called directly without creating an object of the class(same class)
+      - From different class call Classname.methodname
+    block:
+      - 
+
+
+Waits:
+   - ImplicitWait
+      - affects findElement() and findElements()
+      - Global wait
+      - Exception: NoSuchElementException
+   - ThreadSleep()
+       
+
+ExplicitWait:
+
+   - FluentWait
+   - WebDriverWait
+
+   - Explicit Wait can be applied to wait for the elements behaviour
+   - Once the element is ready interact with it
+
+   methods:
+     - alertIsPresent()
+     - visiblityOfEle()
+     - invisibilityOfEle()
+     - stalenessofEle()
+
+Syntax:
+   - WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+     wait.until(ExpectedConditions.stalenessOfEle(ele));
+     ele.click();
+
+     polling period:
+      It will poll for each 500ms
+      Even after the give amount of time-> if it doesnt meet the expected behaviour
+      -> Throw TimeOutException
+
+
+
+
+   

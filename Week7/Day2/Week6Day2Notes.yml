@@ -1,0 +1,73 @@
+Todays Agenda:
+    2:30 to 3:00 -> Cucumber Introduction
+    3:00 to 3:30 -> How to create feature file
+    3:30 to 3:45 -> Breakout
+    3:45 to 4:00 -> Break
+    4:00 to 5:00 -> Step definition and Runner
+    5:00 to 5:15 -> Breakout
+    5:15 to 6:00 -> Parameterization
+    6:00 to 6:30 -> Passing multiple data
+
+ Cucumber:
+ Gherkin Keywords:
+ ================
+  1. Feature: Login Functionality of Leaftaps Application   
+       -> describes the functionality of an application
+  2. Scenario: Login with Positive Credentials
+      -> describes the testcase   
+      a. Given Launch the browser
+         And Load the url
+         And Enter the username
+         And Enter the password
+          -> represent the precondition      
+      b. When Click on the Login Button
+          -> represents the test condition
+      c. Then HomePage should be displayed
+          -> represents the expected result(for positive scenario)
+      d. But Error message should be displayed
+          -> represents the expected result(for negative scenario) 
+  3.  Scenario Outline: Create Lead for multiple data
+        -> Pass different sets of data for a Scenario  
+  4. Examples:
+        -> carry values to Scenario Outline
+
+ Steps to create layers of Cucucmber:
+  1. Under src/test/java create 3 packages
+       - features
+           - Create feature file
+                 Right click -> features package-> New -> Other -> expand General folder\
+                 -> double click File-> Give file name-> Login and extension is feature
+                 -> Click finish
+       - steps
+           - Create Step Defintion class inside steps package
+           - Create methods for each step of the feature file inside StepDefintion
+           - Put the Selenium codes for implementation inside each methods
+           - On the top of each methods integrate the faeture file and StepDefintion
+             ex: @Given("Launch the browser")
+	public void launchBrowser() {
+		driver = new ChromeDriver();	
+	}
+       - runner
+           - Inside runner package create a class called CucumberRunner
+           - On the top of the runner class use @CucumberOptions and use some of the attributes
+              features -> mention the path of the feature file
+              glue     -> mention the package name of StepDefinition
+              monochrome-> remove the unreadable/junk characters from the console
+              publish   -> to get the cucumber report in the console
+           - Finally for execution the runner class should extend AbstractTestNGCucumberTests   
+
+
+Paramterization:
+  - Surround different data in multiple scenario with ''
+  - In StepDefinition class on top of the corresponding method replace the data
+    with {string}
+  - To pass input to the method pass argument
+  - Finally, replace the hardcoded data with the argument
+
+  Exception:
+   - UndefineStepException
+   - DuplicateStepDefintionException
+
+How to pass multiple data for a Scenario using Scenario Outline:
+
+
